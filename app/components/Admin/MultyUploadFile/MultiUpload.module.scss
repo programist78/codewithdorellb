@@ -1,0 +1,239 @@
+@media screen and (min-width: 1000px) {
+    .back{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: auto;
+    }
+    .form{
+        width: 80vw;
+        min-height: 42vw;
+        height: auto;
+        background: rgba(255, 255, 255, 0.15);
+        border: 0.0625vw solid #FFFFFF;
+        backdrop-filter: blur(0.125vw);
+        border-radius: 3.125vw;
+        display: flex;
+        align-items: flex-start;
+        padding-left: 5vw;
+        flex-direction: column;
+        justify-content: flex-start;
+        p{
+            font-family: 'Ubuntu';
+            font-style: normal;
+            font-weight: 500;
+            font-size: 4.375vw;
+            display: flex;
+            margin-top: 3.125vw;
+            margin-bottom: 0;
+            align-items: center;
+            color: rgba(255, 255, 255, 0.6);
+        }
+    }
+    .title{
+        max-width: 75vw;
+        width: 75vw;
+        min-height: 3.25vw;
+        max-height: 3.25vw;
+        font-size: 1.5vw;
+        padding-left: 2vw;
+        padding-right: 2vw;
+        background: rgba(255, 255, 255, 0.15);
+        border-radius: 1.875vw;
+        margin-bottom: 1vw;
+        // margin-top: 2vw;
+    }
+    .text{
+        max-width: 75vw;
+        width: 75vw;
+        min-height: 6.25vw;
+        padding-left: 2vw;
+        padding-right: 2vw;
+        height: auto;
+        font-size: 1.5vw;
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        background: rgba(255, 255, 255, 0.15);
+        border-radius: 1.875vw;
+        margin-bottom: 1vw;
+        // margin-top: 2vw;
+    }
+    // .button{
+    //     width: 16.87vw;
+    //     height: 5.625vw;
+    //     background: rgba(255, 255, 255, 0.25);
+    //     border-radius: 1.56vw;
+    //     margin-top: 1.5vw;
+    //     font-size: 1vw;
+    //     display: flex;
+    //     justify-content: center;
+    //     align-items: center;
+    // }
+    .button{
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        background: rgba(255, 255, 255, 0.25);
+        border-radius: 1.56vw;
+        padding-left: 2vw;
+        padding-top: 3vw;
+        height: 5vw;
+        font-size: 1vw;
+        box-shadow: 0 0 5px rgba(0,0,0,0.1);
+        transition: box-shadow 0.1s linear;
+        margin-bottom: 4vw;
+    }
+}
+
+@media screen and (min-width: 450px) and (max-width: 1000px) {
+    .back{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: auto;
+    }
+    .form{
+        width: 80vw;
+        min-height: 42vw;
+        height: auto;
+        background: rgba(255, 255, 255, 0.15);
+        border: 0.0625vw solid #FFFFFF;
+        backdrop-filter: blur(0.125vw);
+        border-radius: 3.125vw;
+        display: flex;
+        align-items: flex-start;
+        padding-left: 5vw;
+        flex-direction: column;
+        justify-content: flex-start;
+        p{
+            font-family: 'Ubuntu';
+            font-style: normal;
+            font-weight: 500;
+            font-size: 7vw;
+            display: flex;
+            margin-top: 5vw;
+            margin-bottom: 0;
+            align-items: center;
+            color: rgba(255, 255, 255, 0.6);
+        }
+    }
+    .title{
+        max-width: 70vw;
+        width: 70vw;
+        min-height: 5.2vw;
+        max-height: 5.2vw;
+        font-size: 2.4vw;
+        padding-left: 3.2vw;
+        padding-right: 3.2vw;
+        background: rgba(255, 255, 255, 0.15);
+        border-radius: 3vw;
+        margin-bottom: 1.6vw;
+        // margin-top: 2vw;
+    }
+    .text{
+        max-width: 70vw;
+        width: 70vw;
+        min-height: 10vw;
+        padding-left: 3.2vw;
+        padding-right: 3.2vw;
+        height: auto;
+        font-size: 2.4vw;
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        background: rgba(255, 255, 255, 0.15);
+        border-radius: 3vw;
+        margin-bottom: 1.6vw;
+    }
+    .button{
+        border: 0.1vw solid #ccc;
+        border-radius: 0.3vw;
+        background: rgba(255, 255, 255, 0.25);
+        border-radius: 1.56vw;
+        padding-left: 2vw;
+        padding-top: 2vw;
+        padding-bottom: 1vw;
+        height: 5vw;
+        margin-bottom: 4vw;
+        font-size: 2.6vw;
+        box-shadow: 0 0 0.5vw rgba(0,0,0,0.1);
+        transition: box-shadow 0.1s linear
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .back{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: auto;
+    }
+    .form{
+        width: 80vw;
+        min-height: 42vw;
+        height: auto;
+        background: rgba(255, 255, 255, 0.15);
+        border: 0.0625vw solid #FFFFFF;
+        backdrop-filter: blur(0.125vw);
+        border-radius: 3.125vw;
+        display: flex;
+        align-items: flex-start;
+        padding-left: 5vw;
+        margin-top: 10vw;
+        flex-direction: column;
+        justify-content: flex-start;
+        p{
+            font-family: 'Ubuntu';
+            font-style: normal;
+            font-weight: 500;
+            font-size: 10vw;
+            display: flex;
+            margin-top: 5vw;
+            margin-bottom: 0;
+            align-items: center;
+            color: rgba(255, 255, 255, 0.6);
+        }
+    }
+    .title{
+        max-width: 70vw;
+        width: 70vw;
+        min-height: 10vw;
+        max-height: 10vw;
+        font-size: 7.5vw;
+        padding-left: 3.2vw;
+        padding-right: 3.2vw;
+        background: rgba(255, 255, 255, 0.15);
+        border-radius: 3vw;
+        margin-bottom: 1.6vw;
+        // margin-top: 2vw;
+    }
+    .text{
+        max-width: 70vw;
+        width: 70vw;
+        min-height: 15vw;
+        padding-left: 3.2vw;
+        padding-right: 3.2vw;
+        height: auto;
+        font-size: 7.5vw;
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        background: rgba(255, 255, 255, 0.15);
+        border-radius: 3vw;
+        margin-bottom: 1.6vw;
+    }
+    .button{
+        border: 0.1vw solid #ccc;
+        border-radius: 0.3vw;
+        background: rgba(255, 255, 255, 0.25);
+        border-radius: 1.56vw;
+        padding-left: 2vw;
+        padding-top: 4vw;
+        // padding-bottom: 1vw;
+        height: 10vw;
+        margin-bottom: 4vw;
+        font-size: 3vw;
+        box-shadow: 0 0 0.5vw rgba(0,0,0,0.1);
+        transition: box-shadow 0.1s linear
+    }
+}

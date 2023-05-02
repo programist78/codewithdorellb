@@ -1,0 +1,98 @@
+@use "../../styles/various.module.scss" as var;
+
+
+// @media screen and (min-width: 1023px) {
+    .app_gradient{
+        position: absolute;
+        margin-top: -80px;
+        width: 100vw;
+        height: 250px;
+    }
+    .preback{
+        width: 100vw;
+        display: flex;
+        flex-direction: column;        
+        // justify-content: center;
+        align-items: center;
+        // position: absolute;
+        // bottom: 0;
+    }
+    .back{
+        width: 1600px;
+        display: flex;
+        flex-direction: row;
+        z-index: 10;
+        justify-content: space-between;
+        align-items: center;
+        height: 170px;
+
+    }
+    @media screen and (max-width: 1600px) {
+       .back{
+        width: 100vw;
+       } 
+    }
+
+
+    .logo_part{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+        gap: 10px;
+        margin-left: 10%;
+    }
+    .logo_text{
+        font-family: 'Raleway', sans-serif;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 24px;
+        z-index: 10;
+        line-height: 38px;
+        display: flex;
+        align-items: center;
+        margin-top: -10px;
+        color: #FFFFFF;
+        span{
+            font-family: 'Pacifico';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 24px;
+        line-height: 56px;
+        color: #FFFFFF;
+        margin-left: 5px;
+        margin-right: 5px;
+        }
+    }
+    .links_part{
+        display: flex;
+        flex-direction: row;
+        gap: 150px;
+        margin-right: 10%;
+        p{
+            @include var.navbar_text;
+            // color: rgba(255, 255, 255, 0.75) !important;
+        }
+    }
+    @media screen and (max-width: 1023px) {
+        .links_part{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+    }
+    @media screen and (max-width: 768px) {
+        .logo{
+            width: 40px;
+            height: 40px;
+            gap: 5px;
+        }
+        .links_part{
+            gap: 5px;
+            p{
+                @include var.navbar_text_phone
+            }
+        }
+    }
+// }
