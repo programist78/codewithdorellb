@@ -1,21 +1,22 @@
-import { gql } from "@apollo/client/core";
 import { useApolloClient } from "@apollo/client/react/hooks/useApolloClient.js";
 import { useMutation } from "@apollo/client/react/hooks/useMutation.js";
 import { createElement as h, useState, useContext } from "react";
-import {SINGLE_UPLOAD_MUTATION} from '../../../apollo/posts'
+import {CREATE_POST} from '../../../apollo/posts'
 import { AuthContext } from '../../../hooks/AuthContext';
 import styles from '../../Login/Login.module.scss'
 import { useRouter } from 'next/router';
 import { useSelector } from "react-redux";
-import {useEffect} from "react"
-
+import Loader from '../../Loader'
 export default function MultyUploadFile() {
   const { user, logout } = useContext(AuthContext);
   const [title, setTitle] = useState('')
   const router = useRouter();
-  const [text, setText] = useState('')
+  const [sourceCode, setSourceCode] = useState('')
+  const [videoLink, setVideoLink] = useState('')
   
-  const [uploadFileMutation] = useMutation(SINGLE_UPLOAD_MUTATION);
+  const [uploadFileMutation, {loading: createLoading, error}] = useMutation(CREATE_POST, {
+    variables: {title, sourceCode, videoLink}
+  });
   const apolloClient = useApolloClient();
   const { auth, loading } = useSelector((state) => state.auth);
 
@@ -25,14 +26,12 @@ export default function MultyUploadFile() {
   //   }
   // }, [loading]);
 
-  
-  function onChangeCP({ target: { validity, files } }) {
-    if (validity.valid && files && files[0])
-    console.log(files)
-      uploadFileMutation({ variables: { file: files, post:{title: title, text: text} } }).then(() => {
-        apolloClient.resetStore();
-      });
+  function Send() {
+    uploadFileMutation()
   }
+
+  if (error) return alert("Something went wrong")
+  if (loading) return <Loader />
 
   return(
     
@@ -48,14 +47,15 @@ export default function MultyUploadFile() {
       <input value={title} onChange={(e) => setTitle(e.target.value)} className={styles.title}/>
       </div>
       <div>
-      <p>Text</p>
-      <input value={text} onChange={(e) => setText(e.target.value)} className={styles.text}/>
+      <p>Explained video (link)</p>
+      <input value={videoLink} onChange={(e) => setVideoLink(e.target.value)} className={styles.text}/>
       </div>
       <div>
-      <p>Images</p>
-      <input type="file" required multiple onChange={onChangeCP} className={styles.button} style={{height: "5vw", marginBottom: "2vw"}}/>
+      <p>Source code (link)</p>
+      <input value={sourceCode} onChange={(e) => setSourceCode(e.target.value)} className={styles.text}/>
       </div>
       </div>
+      <button onClick={() => Send()}>Send</button>
       </div>
       </div>
       :

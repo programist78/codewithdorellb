@@ -6,10 +6,12 @@ const PostwImg = new mongoose.Schema(
       type: String,
       // required: true,
     },
-    text: {
+    sourceCode: {
       type: String,
     },
-    images: {},
+    videoLink: {
+      type: String,
+    },
   },
   {
     timestamps: true,

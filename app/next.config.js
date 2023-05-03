@@ -6,7 +6,7 @@ module.exports = {
     API_URI: /** @type {string} */ (process.env.API_URI),
   },
   i18n: {
-    locales: ["en", "ru", "uk"],
+    locales: ["en", "es", "hi", "it", "ru"],
     defaultLocale: "en"
   },
   async headers() {
