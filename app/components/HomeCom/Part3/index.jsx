@@ -8,7 +8,7 @@ export default function Part3() {
   const {t} = useTranslation()
   const {data, loading, error} = useQuery(GET_POSTS)
   return (
-    <div className={styles.back}>
+    <div className={styles.back} id='projects'>
       <div className={styles.head}>
         <p className={styles.title}>
         {t('home:projects_title')}

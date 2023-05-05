@@ -42,7 +42,7 @@ export default function Navbar() {
         <Link href='/' style={{textDecoration: "none"}}><p>Codewith_Dorell.B</p></Link>
         </div>
         <div className={styles.center}>
-        <Link href='#projects' style={{textDecoration: "none"}}><p>{t('header:projects')}</p></Link>
+        <Link href='/#projects' style={{textDecoration: "none"}}><p>{t('header:projects')}</p></Link>
         <Link href='https://www.buymeacoffee.com' style={{textDecoration: "none"}}><p>{t('header:support')}</p></Link>
         {auth &&
         <div>
