@@ -9,9 +9,27 @@ import { useRouter } from 'next/router';
 import styles from './Login.module.scss'
 import { useSelector } from 'react-redux';
 import {CiLogin} from 'react-icons/ci'
-import Image from 'next/image';
+import Swal from 'sweetalert2';
 
 function LoginCom() {
+  const Toast = Swal.mixin({
+    toast: true,
+    position: 'center',
+    showConfirmButton: false,
+    timer: 3000,
+    width: "400px",
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      toast.addEventListener('mouseenter', Swal.stopTimer)
+      toast.addEventListener('mouseleave', Swal.resumeTimer)
+    },
+    customClass: {
+        container: 'custom-swal-font',
+        title: 'custom-swal-font',
+        content: 'custom-swal-font',
+        confirmButton: 'custom-swal-font',
+      },
+  })
    const { user, logout } = useContext(AuthContext);
    const [errorsgr, setErrorsgr] = useState([]);
     const context = useContext(AuthContext) || "";
@@ -42,20 +60,27 @@ function LoginCom() {
 
   const onSubmit = data => {
     setData(data)
-    loginUser()
+    setTimeout(loginUser, 500)
   };
-  const [loginUser, {loading}] = useMutation(LOGIN_USER, {
+const [loginUser, {loading}] = useMutation(LOGIN_USER, {
         
-    update(proxy, { data: {loginUser: userData}}){
-        context.login(userData)
-        router.push('/');
+  update(proxy, { data: {loginUser: userData}}){
+    context.login(userData)
+    router.push('/');
+},
+  onError: (error) => {
+      Swal.fire(`Incorrect data: ${error}`);
+      // Обработка ошибок вручную
     },
-    onError({ graphQLErrors }) {
-      setErrorsgr(graphQLErrors);
-      alert(`Everything is correct${errorsgr}?`)
-      loginUser()
-  },
-    variables: { about: data  },
+
+    onCompleted: (data) => {
+      Toast.fire({
+          icon: 'success',
+          title: `Loading`
+        })
+    } ,
+  
+  variables: { about: data  },
 });
   
 
@@ -88,7 +113,6 @@ function LoginCom() {
           </button>
         </div>
       </form>
-      <Image alt="." width={1600} height={1400} src="/for_login.webp" className={styles.back_login}/>
     </div>
   );
 };

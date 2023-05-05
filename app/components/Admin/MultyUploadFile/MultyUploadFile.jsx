@@ -7,17 +7,45 @@ import styles from '../../Login/Login.module.scss'
 import { useRouter } from 'next/router';
 import { useSelector } from "react-redux";
 import Loader from '../../Loader'
+import Swal from "sweetalert2";
 export default function MultyUploadFile() {
   const { user, logout } = useContext(AuthContext);
   const [title, setTitle] = useState('')
   const router = useRouter();
   const [sourceCode, setSourceCode] = useState('')
   const [videoLink, setVideoLink] = useState('')
+  const Toast = Swal.mixin({
+    toast: true,
+    position: 'center',
+    showConfirmButton: false,
+    timer: 3000,
+    width: "400px",
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      toast.addEventListener('mouseenter', Swal.stopTimer)
+      toast.addEventListener('mouseleave', Swal.resumeTimer)
+    },
+    customClass: {
+        container: 'custom-swal-font',
+        title: 'custom-swal-font',
+        content: 'custom-swal-font',
+        confirmButton: 'custom-swal-font',
+      },
+  })
   
   const [uploadFileMutation, {loading: createLoading, error}] = useMutation(CREATE_POST, {
-    variables: {title, sourceCode, videoLink}
+    onError: (error) => {
+      Swal.fire(`Incorrect data: ${error}`);
+      // Обработка ошибок вручную
+    },
+    onCompleted: (data) => {
+      Toast.fire({
+          icon: 'success',
+          title: `Congratulations, you’ve created a new post!`
+        })
+    } ,
+    variables: {post:{title, sourceCode, videoLink}}
   });
-  const apolloClient = useApolloClient();
   const { auth, loading } = useSelector((state) => state.auth);
 
   // useEffect(() => {
@@ -30,7 +58,6 @@ export default function MultyUploadFile() {
     uploadFileMutation()
   }
 
-  if (error) return alert("Something went wrong")
   if (loading) return <Loader />
 
   return(
@@ -38,8 +65,8 @@ export default function MultyUploadFile() {
     <div className={styles.back}>
       {auth 
       ?
-      <div className={styles.back}>
-      <div className={styles.form}>
+      <div className={styles.back2}>
+      <div className={`${styles.form} ${styles.back2}`}>
         <p className={styles.title}>Create post</p>
         <div className={styles.part2}> 
         <div>
@@ -55,7 +82,7 @@ export default function MultyUploadFile() {
       <input value={sourceCode} onChange={(e) => setSourceCode(e.target.value)} className={styles.text}/>
       </div>
       </div>
-      <button onClick={() => Send()}>Send</button>
+      <button className={styles.button} onClick={() => Send()}>Send</button>
       </div>
       </div>
       :

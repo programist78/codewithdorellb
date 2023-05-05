@@ -1,13 +1,13 @@
 import { gql } from "@apollo/client/core";
 
 export const GET_POSTS = gql`
-    query Query {
-    getAllPosts {
-        images
-        title
-        text
-        id
-    }
+query Query {
+  getAllPosts {
+    id
+    title
+    sourceCode
+    videoLink
+  }
 }
 `;
 
@@ -26,5 +26,17 @@ mutation CreatePost($post: PostInput) {
     sourceCode
     videoLink
   }
+}
+`
+
+export const GET_LAST_VIDEO = gql`
+query Query {
+  getLastVideo
+}
+`
+
+export const CHANGE_LAST_VIDEO = gql`
+mutation Mutation($text: String) {
+  lastVideo(text: $text)
 }
 `

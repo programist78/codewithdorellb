@@ -15,6 +15,7 @@ const Layout = ({ children }) => {
     const { user, logout, authredux } = useContext(AuthContext);
 
     {user ? dispatch(addUsertoLocal(user)) : null}
+    console.log(user)
     return (
 <>
 <div className={montserrat.className}>

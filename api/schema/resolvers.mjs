@@ -32,7 +32,16 @@ const resolvers = {
             return "Post deleted"
         },
         createPost: async (parent,{ post }) => {
-            const {title, sourceCode, videoLink} = post
+            const {title, sourceCode, videoLink} = post;
+            if (!title) {
+                throw new GraphQLError("Input title");
+            }
+            if (!videoLink) {
+                throw new GraphQLError("Input video Link");
+            }
+            if (!sourceCode) {
+                throw new GraphQLError("Input source Code");
+            }
             const postwimg = new PostwImg({ title, sourceCode, videoLink })
             await postwimg.save()
             return postwimg;
@@ -43,7 +52,7 @@ const resolvers = {
             const {id} = args
             const already_exsist = await User.findOne({ email });
             if (already_exsist) {
-            throw new ValidationError("Email already exists");
+            throw new GraphQLError("Email already exists");
             }
             const salt = await bcrypt.genSalt(10);
             const passwordHash = await bcrypt.hash(password, salt);
@@ -64,7 +73,7 @@ const resolvers = {
             {email}
             );
             if (!user) {
-                throw new GraphQLError("Invalid email given");
+                    throw new GraphQLError("Invalid email given");
             }
             const isValidPass = await bcrypt.compare(password, user.passwordHash);
             if (!isValidPass) {
@@ -77,8 +86,9 @@ const resolvers = {
         },
         lastVideo: async (_, {text}, context, info) => {
             // let number = 6452954934773fbb68651a96
+            let id = "6452954934773fbb68651a96"
             const linkchange = await LastVideo.findByIdAndUpdate(
-                {id: number},
+                id,
                 {text},
                 { new: true }
             );

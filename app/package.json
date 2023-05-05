@@ -45,6 +45,7 @@
     "react-redux": "^8.0.5",
     "redux-persist": "^6.0.0",
     "sass": "^1.57.1",
+    "sweetalert2": "^11.7.5",
     "three": "^0.151.3",
     "three-gltf-loader": "^1.111.0",
     "yup": "^0.32.11"

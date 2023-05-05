@@ -1,13 +1,15 @@
 import styles from './Part2.module.scss'
+import { useTranslation } from 'next-i18next'
 export default function Part2() {
+  const {t} = useTranslation()
   return (
     <div className={styles.back}>
-        <p className={styles.title}>#Facts<span>  about me</span></p>
+        <p className={styles.title}>{t('home:facts_title_1')}<span>{t('home:facts_title_2')}</span></p>
         <div className={styles.ul}>
-            <li>I was born in Moldova 🇲🇩 but I've been living in Italy🇮🇹 for about 6  years.</li>
-            <li>I can say that I'm at the beginning of my career as a developer as I officially started working in this field for more than a year.</li>
-            <li>At the moment I work in a multinational company.</li>
-            <li>I don't have a professional specialization📜, as to add the objective and be able to work as a programmer</li>
+            <li>{t('home:facts_text_1')}</li>
+            <li>{t('home:facts_text_2')}</li>
+            <li>{t('home:facts_text_3')}</li>
+            <li>{t('home:facts_text_4')}</li>
         </div>
     </div>
   )
