@@ -28,6 +28,7 @@ const [deletePost, {loading}] = useMutation(DELETE_POST, {
   },
   variables: {deletePostId: id}
 })
+console.log(sourceCode)
   return (
     <div ref={ref} className={styles.back}>
             {inView ?

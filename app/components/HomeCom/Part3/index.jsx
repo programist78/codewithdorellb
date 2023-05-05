@@ -28,7 +28,7 @@ export default function Part3() {
                 myKey={key}
                 id={obj.id}
                 title={obj.title}
-                souceCode={obj.souceCode}
+                sourceCode={obj.sourceCode}
                 videoLink={obj.videoLink}
             />
             ),
