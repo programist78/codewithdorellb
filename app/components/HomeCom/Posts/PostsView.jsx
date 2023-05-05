@@ -40,11 +40,11 @@ const [deletePost, {loading}] = useMutation(DELETE_POST, {
             {title}
           </p>
           <div className={styles.box}>
-            <a href={videoLink}><button>Explained video</button></a>
+            <a href={`https://www.youtube.com/watch?v=${videoLink}`}><button>Explained video</button></a>
             <a href={sourceCode}><button>Source code</button></a>
           </div>
           </div>
-          <iframe width="560" height="315" src={videoLink} title="YouTube video player" frameborder="0" allow="accelerometer;  clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen className={styles.video} />
+          <iframe width="560" height="315" src={`https://www.youtube.com/embed/${videoLink}`} title="YouTube video player" frameborder="0" allow="accelerometer;  clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen className={styles.video} />
     </div>
     </>)
      :
