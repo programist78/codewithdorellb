@@ -6,7 +6,16 @@ import { useQuery } from '@apollo/client'
 import { GET_POSTS } from '../../../apollo/posts';
 export default function Part3() {
   const {t} = useTranslation()
-  const {data, loading, error} = useQuery(GET_POSTS)
+  const {data, loading, error} = useQuery(GET_POSTS);
+  const fakeArray = [
+    {
+      "id": "64580bffc8a2b84184b66a76",
+      "title": "JS Clock",
+      "sourceCode": "zzZbcrhmYdU",
+      "videoLink": "zzZbcrhmYdU"
+    }
+  ];
+  
   return (
     <div className={styles.back} id='projects'>
       <div className={styles.head}>
@@ -18,7 +27,8 @@ export default function Part3() {
        
         </div>
             <div className={styles.back2}>
-            {(loading ? [...Array(3)] :data?.getAllPosts).map((obj, key) => 
+            {/* {(loading ? [...Array(3)] :data?.getAllPosts).map((obj, key) =>  */}
+            {(loading ? [...Array(3)] :fakeArray).map((obj, key) => 
              loading ? 
              (<PostsView     key={key} 
                  myKey={key} isLoading={true} />) :
